@@ -14,7 +14,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## TDD（テスト駆動開発）ルール
 @docs/rules/test-driven-guide.md
 
-### リファクタリングルール
+## リファクタリングルール
 @docs/rules/refactoring-guide.md
 
 ## 表示言語

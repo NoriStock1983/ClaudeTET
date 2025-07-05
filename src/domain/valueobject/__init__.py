@@ -1,0 +1,1 @@
+# Value Object package for domain layer
