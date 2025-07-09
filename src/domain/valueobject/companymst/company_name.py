@@ -1,3 +1,5 @@
+import re
+
 class CompanyName:
     """会社名値オブジェクト (companynm)"""
     
@@ -14,6 +16,10 @@ class CompanyName:
         
         if len(value) > 50:
             raise ValueError("会社名は50文字以内である必要があります")
+        
+        forbidden_chars = ['<', '>', '&', '"', "'"]
+        if any(char in value for char in forbidden_chars):
+            raise ValueError("会社名に使用できない文字が含まれています")
     
     @property
     def value(self) -> str:

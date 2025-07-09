@@ -1,6 +1,8 @@
 class SubcontractClass:
     """外注区分値オブジェクト (subcontract_class)"""
     
+    ALLOWED_VALUES = ["00", "01", "02"]  # 00:自社, 01:外注, 02:協力会社
+    
     def __init__(self, value: str):
         self._validate(value)
         self._value = value
@@ -12,8 +14,8 @@ class SubcontractClass:
         if not isinstance(value, str):
             raise TypeError("外注区分は文字列である必要があります")
         
-        if len(value) > 2:
-            raise ValueError("外注区分は2文字以内である必要があります")
+        if value not in self.ALLOWED_VALUES:
+            raise ValueError("外注区分は00, 01, 02のいずれかである必要があります")
     
     @property
     def value(self) -> str:

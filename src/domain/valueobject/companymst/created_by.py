@@ -1,3 +1,5 @@
+import re
+
 class CreatedBy:
     """作成者値オブジェクト (created_by)"""
     
@@ -12,8 +14,8 @@ class CreatedBy:
         if not isinstance(value, str):
             raise TypeError("作成者は文字列である必要があります")
         
-        if len(value) > 8:
-            raise ValueError("作成者は8文字以内である必要があります")
+        if not re.match(r'^[A-Za-z0-9]{1,8}$', value):
+            raise ValueError("作成者は半角英数字8文字以内である必要があります")
     
     @property
     def value(self) -> str:
